@@ -1,17 +1,24 @@
 @import "~bulma/sass/utilities/initial-variables"
 
 // Config vars
-// Kaldi logo brand color: #FD461E
-$kaldi-red: #D64000
-$kaldi-red-invert: #fff
+// Teto logo brand color: #0392DD
+$teto-blue: #0392DD
+$kaldi-red-invert: #0392DD
 
-$primary: $kaldi-red
+$primary: $teto-blue
 $primary-invert: $kaldi-red-invert
 $body-color: #333
 $black: #2b2523
+$title-color: #0392DD
 
 .navbar .navbar-menu
   box-shadow:none !important
+  min-height: 6.25rem 
+
+.grid-box
+  display: grid
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
 
 .content .taglist
   list-style: none
@@ -44,7 +51,7 @@ $black: #2b2523
 
 .full-width-image
     width: 100vw
-    height: 400px
+    height: 600px
     background-size: cover
     background-position: bottom
     display: flex
@@ -61,10 +68,10 @@ $black: #2b2523
     border-radius: .25rem
     text-decoration: none
     font-weight: 700
-    color: #CC3700
+    color: $primary
     text-align: center
-    -webkit-box-shadow: inset 0 0 0 2px #CC3700
-    box-shadow: inset 0 0 0 2px #f40
+    -webkit-box-shadow: inset 0 0 0 2px #0392DD
+    box-shadow: inset 0 0 0 2px #0392DD
     -webkit-transition: all .15s ease
     transition: all .15s ease
 
@@ -93,7 +100,9 @@ $menu-item-active-background-color:	$kaldi-red-invert
 $menu-list-border-left: 1px solid $kaldi-red-invert
 $menu-label-color: $white-ter
 
-
+.rec-dot 
+  box-shadow: none !important
+  
 .menu-label
   font-size: 1em !important
   text-align: left

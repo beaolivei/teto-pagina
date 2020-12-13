@@ -1,18 +1,23 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import React from "react";
+import PropTypes from "prop-types";
+import { Link, graphql } from "gatsby";
 
-import Layout from '../components/Layout'
-import Features from '../components/Features'
-import BlogRoll from '../components/BlogRoll'
+import Layout from "../components/Layout";
+import Features from "../components/Features";
+import BlogRoll from "../components/BlogRoll";
+import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
+import Slider from "../components/Slider";
 
 export const IndexPageTemplate = ({
   image,
   title,
   heading,
   subheading,
+  mapaTitle,
   mainpitch,
   description,
+  aboutMap,
+  aboutTeto,
   intro,
 }) => (
   <div>
@@ -28,23 +33,22 @@ export const IndexPageTemplate = ({
     >
       <div
         style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
+          display: "flex",
+          height: "150px",
+          lineHeight: "1",
+          justifyContent: "space-around",
+          alignItems: "left",
+          flexDirection: "column",
         }}
       >
         <h1
           className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
           style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
+            boxShadow: "#0392DD 0.5rem 0px 0px, #0392DD -0.5rem 0px 0px",
+            backgroundColor: "#0392DD",
+            color: "white",
+            lineHeight: "1",
+            padding: "0.25em",
           }}
         >
           {title}
@@ -52,12 +56,11 @@ export const IndexPageTemplate = ({
         <h3
           className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
           style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
+            boxShadow: "#0392DD 0.5rem 0px 0px, #0392DD -0.5rem 0px 0px",
+            backgroundColor: "#0392DD",
+            color: "white",
+            lineHeight: "1",
+            padding: "0.25em",
           }}
         >
           {subheading}
@@ -70,14 +73,14 @@ export const IndexPageTemplate = ({
           <div className="columns">
             <div className="column is-10 is-offset-1">
               <div className="content">
-                <div className="content">
+                {/* <div className="content">
                   <div className="tile">
                     <h1 className="title">{mainpitch.title}</h1>
                   </div>
                   <div className="tile">
                     <h3 className="subtitle">{mainpitch.description}</h3>
                   </div>
-                </div>
+                </div> */}
                 <div className="columns">
                   <div className="column is-12">
                     <h3 className="has-text-weight-semibold is-size-2">
@@ -86,24 +89,58 @@ export const IndexPageTemplate = ({
                     <p>{description}</p>
                   </div>
                 </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
+                <div className="columns is-multiline">
+                  <section className="section columns">
+                    <div className="has-text-centered column">
+                      <div
+                        style={{
+                          width: "400px",
+                          display: "inline-block",
+                        }}
+                      >
+                        <img src={aboutMap.image} />
+                      </div>
+                    </div>
+                    <div>
+                      <h6>{aboutMap.title}</h6>
+                      <p>{aboutMap.description}</p>
+                      <Link className="btn" to="/products">
+                        See all products
+                      </Link>
+                    </div>
+                  </section>
+                  <section className="section columns">
+                    <div>
+                      <h6>{aboutTeto.title}</h6>
+                      <p>{aboutTeto.description}</p>
+                      <Link className="btn" to="/products">
+                        See all products
+                      </Link>
+                    </div>
+                    <div className="has-text-centered column">
+                      <div
+                        style={{
+                          width: "400px",
+                          display: "inline-block",
+                        }}
+                      >
+                        <img src={aboutTeto.image} />
+                      </div>
+                    </div>
+                  </section>
                 </div>
                 <div className="column is-12">
                   <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
+                    Dados da Comunidade
                   </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
-                  </div>
+                  <p>{description}</p>
+                  <img src="https://via.placeholder.com/1000x800" />
+                </div>
+                <div className="column is-12">
+                  <h3 className="has-text-weight-semibold is-size-2">
+                    O que a Comunidade diz da Teto
+                  </h3>
+                  <Slider sliderItems={intro.blurbs} />
                 </div>
               </div>
             </div>
@@ -112,7 +149,7 @@ export const IndexPageTemplate = ({
       </div>
     </section>
   </div>
-)
+);
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -120,14 +157,15 @@ IndexPageTemplate.propTypes = {
   heading: PropTypes.string,
   subheading: PropTypes.string,
   mainpitch: PropTypes.object,
+  aboutMap: PropTypes.object,
   description: PropTypes.string,
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
-}
+};
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+  const { frontmatter } = data.markdownRemark;
 
   return (
     <Layout>
@@ -137,12 +175,14 @@ const IndexPage = ({ data }) => {
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
         mainpitch={frontmatter.mainpitch}
+        aboutMap={frontmatter.aboutMap}
+        aboutTeto={frontmatter.aboutTeto}
         description={frontmatter.description}
         intro={frontmatter.intro}
       />
     </Layout>
-  )
-}
+  );
+};
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
@@ -150,9 +190,9 @@ IndexPage.propTypes = {
       frontmatter: PropTypes.object,
     }),
   }),
-}
+};
 
-export default IndexPage
+export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
@@ -172,6 +212,28 @@ export const pageQuery = graphql`
           title
           description
         }
+        aboutMap {
+          title
+          description
+          image {
+            childImageSharp {
+              fluid(maxWidth: 400, quality: 64) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        aboutTeto {
+          title
+          description
+          image {
+            childImageSharp {
+              fluid(maxWidth: 400, quality: 64) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
         description
         intro {
           blurbs {
@@ -190,4 +252,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

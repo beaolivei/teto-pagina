@@ -10,12 +10,24 @@ mainpitch:
     O Mapa de Direitos é uma plataforma aberta que desenvolvemos para
     visibilizar os direitos violados nas favelas mais precárias e invisíveis do
     país. Os dados aqui reunidos são inspirados e se baseiam nas nossas
-    atividades em território. 
-description: Ao compartilhá-los com comunidades que não necessariamente
-  trabalham com a TETO, entidades governamentais, outras organizações e atores
-  da sociedade civil, esperamos que as evidências e a transparência fomente o
-  desenvolvimento de ações e políticas que melhorem efetivamente a condição de
-  vida de famílias em situação de vulnerabilidade.
+    atividades em território.
+
+aboutMap:
+  title: Saiba mais sobre o mapa
+  description: >
+    O Mapa de Direitos é uma plataforma aberta que desenvolvemos para
+    visibilizar os direitos violados nas favelas mais precárias e invisíveis do
+    país. Os dados aqui reunidos são inspirados e se baseiam nas nossas
+  image: /img/coffee-gear.png
+
+aboutTeto:
+  title: Voê ja conhece a Teto?
+  description: >
+    O Mapa de Direitos é uma plataforma aberta que desenvolvemos para
+    visibilizar os direitos violados nas favelas mais precárias e invisíveis do
+    país. Os dados aqui reunidos são inspirados e se baseiam nas nossas
+  image: /img/coffee-gear.png
+
 intro:
   blurbs:
     - image: /img/coffee-gear.png
@@ -51,6 +63,7 @@ intro:
     java’s origin and support the farmers that grew it. We take coffee
     production, roasting and brewing seriously and we’re glad to pass that
     knowledge to anyone. This is an edit via identity...
+
 main:
   heading: Great coffee with no compromises
   description: >
